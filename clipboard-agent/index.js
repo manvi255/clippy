@@ -4,13 +4,15 @@ import clipboardy from "clipboardy";
 import fs from "fs";
 import path from "path";
 import { spawn } from "child_process";
-import axios from "axios";
-import FormData from "form-data";
 import { v4 as uuidv4 } from "uuid";
 
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // ===== CONFIG =====
-const WS_SERVER = "ws://YOUR_SERVER_IP:PORT";  // WebSocket server
-const HTTP_SERVER = "http://YOUR_SERVER_IP:PORT"; // HTTP endpoint for files
+const WS_SERVER = "wss://clippy-spt7.onrender.com";  // WebSocket server
 const POLL_INTERVAL = 1000; // Clipboard poll interval (ms)
 const ROOM_ID = process.argv[2] || uuidv4(); // Room UUID from CLI arg or generate new
 
